@@ -1,17 +1,17 @@
 @font-face {
   font-family: "Ubuntu";
-  font-weight: 400;
+  /* font-weight: 400; */
   src: url("./Ubuntu-Bold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Ubuntu";
-  font-weight: 500;
+  /* font-weight: 500; */
   src: url("./Ubuntu-Medium.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Ubuntu";
-  font-weight: 700;
+  /* font-weight: 700; */
   src: url("./Ubuntu-Regular.ttf") format("truetype");
 }

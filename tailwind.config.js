@@ -9,6 +9,10 @@ module.exports = {
       boxShadow: {
         custom: "0 25px 40px -20px rgba(0, 0, 0, 0.0951)",
       },
+      fontSize: {
+        "body-m": "14px",
+        "body-s": "13px",
+      },
       colors: {
         bg: "#EFF5FF",
         "border-color": "#D6D9E6",
@@ -26,5 +30,19 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".text-body-l": {
+          fontSize: "16px",
+          lineHeight: "25px",
+        },
+        ".text-heading": {
+          fontSize: "32px",
+          fontWeight: "700",
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 };
