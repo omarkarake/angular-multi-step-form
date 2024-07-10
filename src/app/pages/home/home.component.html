@@ -7,7 +7,7 @@
     class="w-[100%] h-[100%] lg:flex lg:flex-col lg:items-center lg:justify-between pt-14 pb-8"
   >
     <!-- the form -->
-    <div class="lg:w-[450px] lg:h-[372px]">
+    <div class="lg:w-[450px] lg:h-[372px] flex flex-col gap-10">
       <div>
         <p class="text-heading">Personal info</p>
         <p class="text-body-l text-grey">
@@ -15,16 +15,42 @@
         </p>
       </div>
       <div>
-        <form>
-          <div><p class="text-body-m text-denim">Name</p></div>
-          <div
-            class="bg-transparent border-[1px] border-border-color rounded-lg w-[450px] h-[48px] pl-4 flex flex-col justify-center mt-2"
-          >
-            <input
-              class="outline-none border-none"
-              type="text"
-              placeholder="e.g. Stephen King"
-            />
+        <form class="flex flex-col gap-6">
+          <div>
+            <div><p class="text-body-m text-denim">Name</p></div>
+            <div
+              class="bg-transparent border-[1px] border-border-color rounded-lg w-[450px] h-[48px] pl-4 flex flex-col justify-center mt-2"
+            >
+              <input
+                class="outline-none border-none placeholder-grey leading-[25px]"
+                type="text"
+                placeholder="e.g. Stephen King"
+              />
+            </div>
+          </div>
+          <div>
+            <div><p class="text-body-m text-denim">Email Address</p></div>
+            <div
+              class="bg-transparent border-[1px] border-border-color rounded-lg w-[450px] h-[48px] pl-4 flex flex-col justify-center mt-2"
+            >
+              <input
+                class="outline-none border-none placeholder-grey leading-[25px]"
+                type="text"
+                placeholder="e.g. stephenking@lorem.com"
+              />
+            </div>
+          </div>
+          <div>
+            <div><p class="text-body-m text-denim">Phone Number</p></div>
+            <div
+              class="bg-transparent border-[1px] border-border-color rounded-lg w-[450px] h-[48px] pl-4 flex flex-col justify-center mt-2"
+            >
+              <input
+                class="outline-none border-none placeholder-grey leading-[25px]"
+                type="text"
+                placeholder="e.g. +1 234 567 890"
+              />
+            </div>
           </div>
         </form>
       </div>
