@@ -1,0 +1,75 @@
+<div
+  class="font-ubuntu lg:w-[940px] h-screen lg:h-[600px] lg:bg-white lg:shadow-custom lg:shadow-grey lg:rounded-[.9375rem] lg:p-4 lg:flex relative"
+>
+  <div class="rounded-xl"><app-navigation /></div>
+  <div
+    class="w-[90%] h-auto top-[0px] mt-[300px] lg:mt-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-[10px] lg:w-[100%] lg:h-[100%] px-6 pt-8 pb-2 lg:flex lg:flex-col lg:items-center lg:justify-between lg:pt-14 lg:pb-8 bg-white absolute lg:relative lg:top-0 lg:left-0 lg:transform-none lg:-translate-x-0 lg:-translate-y-0"
+  >
+    <div class="lg:w-[450px] lg:h-[372px] flex flex-col gap-10">
+      <div>
+        <p class="text-heading">Personal info</p>
+        <p class="text-body-l text-grey">
+          Please provide your name, email address, and phone number.
+        </p>
+      </div>
+      <div>
+        <form class="flex flex-col gap-4 md:gap-6">
+          <div>
+            <div><p class="text-body-m text-denim">Name</p></div>
+            <div
+              class="bg-transparent border-[1px] border-border-color rounded-lg w-[100%] lg:w-[450px] h-[40px] lg:h-[48px] pl-4 flex flex-col justify-center mt-2"
+            >
+              <input
+                class="outline-none border-none placeholder-grey leading-[25px]"
+                type="text"
+                placeholder="e.g. Stephen King"
+              />
+            </div>
+          </div>
+          <div>
+            <div><p class="text-body-m text-denim">Email Address</p></div>
+            <div
+              class="bg-transparent border-[1px] border-border-color rounded-lg w-[100%] lg:w-[450px] h-[40px] lg:h-[48px] pl-4 flex flex-col justify-center mt-2"
+            >
+              <input
+                class="outline-none border-none placeholder-grey leading-[25px]"
+                type="text"
+                placeholder="e.g. stephenking@lorem.com"
+              />
+            </div>
+          </div>
+          <div>
+            <div><p class="text-body-m text-denim">Phone Number</p></div>
+            <div
+              class="bg-transparent border-[1px] border-border-color rounded-lg w-[100%] lg:w-[450px] h-[40px] lg:h-[48px] pl-4 flex flex-col justify-center mt-2"
+            >
+              <input
+                class="outline-none border-none placeholder-grey leading-[25px]"
+                type="text"
+                placeholder="e.g. +1 234 567 890"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="bg-white hidden lg:flex justify-between items-center w-[450px] lg:h-[48px]">
+      <div><p class="text-grey">Go Back</p></div>
+      <div
+        class="lg:w-[123px] lg:h-[48px] bg-denim flex justify-center items-center font-medium text-base text-white rounded-lg ml-auto cursor-pointer"
+      >
+        Next Step
+      </div>
+    </div>
+  </div>
+  <div
+    class="bg-white w-[100%] h-[72px] flex items-center justify-between p-4 lg:hidden absolute bottom-0"
+  >
+    <div><p class="text-grey">Go Back</p></div>
+    <div
+      class="lg:w-[123px] w-[97px] lg:h-[48px] h-[40px] bg-denim flex justify-center items-center font-medium text-sm text-white rounded-lg ml-auto cursor-pointer"
+    >
+      Next Step
+    </div>
+  </div>
+</div>
