@@ -3,8 +3,11 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
+      fontFamily: {
+        ubuntu: ["Ubuntu", "sans-serif"],
+      },
       boxShadow: {
-        'custom': '0 25px 40px -20px rgba(0, 0, 0, 0.0951)',
+        custom: "0 25px 40px -20px rgba(0, 0, 0, 0.0951)",
       },
       colors: {
         bg: "#EFF5FF",
