@@ -8,6 +8,7 @@ import { NavigationComponent } from './pages/navigation/navigation.component';
 import { SelectPlanComponent } from './pages/select-plan/select-plan.component';
 import { PickAddOnsComponent } from './pages/pick-add-ons/pick-add-ons.component';
 import { FinishingUpComponent } from './pages/finishing-up/finishing-up.component';
+import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FinishingUpComponent } from './pages/finishing-up/finishing-up.componen
     NavigationComponent,
     SelectPlanComponent,
     PickAddOnsComponent,
-    FinishingUpComponent
+    FinishingUpComponent,
+    ThankYouComponent
   ],
   imports: [
     BrowserModule,
