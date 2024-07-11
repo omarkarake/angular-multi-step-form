@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './navigation.component.css'
 })
 export class NavigationComponent {
-  @Input() currentIndex: number = 1;
+  @Input() currentStep: number = 0;
 }

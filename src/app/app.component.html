@@ -1,18 +1,25 @@
 <div
   class="lg:h-screen lg:max-h-[810px] w-screen max-w-[1440px] bg-bg lg:flex lg:justify-center lg:items-center font-ubuntu"
 >
-  <app-home *ngIf="currentStep === 0" (next)="nextStep()"></app-home>
+  <app-home
+    [currentStep]="currentStep"
+    *ngIf="currentStep === 0"
+    (next)="nextStep()"
+  ></app-home>
   <app-select-plan
+    [currentStep]="currentStep"
     *ngIf="currentStep === 1"
     (next)="nextStep()"
     (back)="previousStep()"
   ></app-select-plan>
   <app-pick-add-ons
+    [currentStep]="currentStep"
     *ngIf="currentStep === 2"
     (next)="nextStep()"
     (back)="previousStep()"
   ></app-pick-add-ons>
   <app-finishing-up
+    [currentStep]="currentStep"
     *ngIf="currentStep === 3"
     (next)="nextStep()"
     (back)="previousStep()"

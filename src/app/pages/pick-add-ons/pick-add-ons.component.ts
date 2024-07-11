@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pick-add-ons',
@@ -6,6 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './pick-add-ons.component.css',
 })
 export class PickAddOnsComponent {
+  @Input('currentStep') currentStep!: number;
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
 

@@ -5,8 +5,8 @@
     <div
       class="w-[33px] h-[33px] rounded-full flex justify-center items-center lg:font-bold lg:text-sm cursor-pointer"
       [ngClass]="{
-        'bg-sky-blue text-denim': currentIndex === 1,
-        'bg-transparent border-[1px] border-white text-white': currentIndex !== 1
+        'bg-sky-blue text-denim': currentStep === 0,
+        'bg-transparent border-[1px] border-white text-white': currentStep !== 0
       }"
     >
       1
@@ -18,13 +18,13 @@
       <div><p class="lg:font-bold lg:text-sm lg:text-white">YOUR INFO</p></div>
     </div>
   </div>
-  
+
   <div class="lg:flex lg:gap-4 items-center">
     <div
       class="w-[33px] h-[33px] rounded-full flex justify-center items-center lg:font-bold lg:text-sm cursor-pointer"
       [ngClass]="{
-        'bg-sky-blue text-denim': currentIndex === 2,
-        'bg-transparent border-[1px] border-white text-white': currentIndex !== 2
+        'bg-sky-blue text-denim': currentStep === 1,
+        'bg-transparent border-[1px] border-white text-white': currentStep !== 1
       }"
     >
       2
@@ -33,16 +33,18 @@
       <div>
         <p class="text-light-blue lg:font-regular lg:text-xs">STEP 2</p>
       </div>
-      <div><p class="lg:font-bold lg:text-sm lg:text-white">SELECT PLAN</p></div>
+      <div>
+        <p class="lg:font-bold lg:text-sm lg:text-white">SELECT PLAN</p>
+      </div>
     </div>
   </div>
-  
+
   <div class="lg:flex lg:gap-4 items-center">
     <div
       class="w-[33px] h-[33px] rounded-full flex justify-center items-center lg:font-bold lg:text-sm cursor-pointer"
       [ngClass]="{
-        'bg-sky-blue text-denim': currentIndex === 3,
-        'bg-transparent border-[1px] border-white text-white': currentIndex !== 3
+        'bg-sky-blue text-denim': currentStep === 2,
+        'bg-transparent border-[1px] border-white text-white': currentStep !== 2
       }"
     >
       3
@@ -54,13 +56,13 @@
       <div><p class="lg:font-bold lg:text-sm lg:text-white">ADD-ONS</p></div>
     </div>
   </div>
-  
+
   <div class="lg:flex lg:gap-4 items-center">
     <div
       class="w-[33px] h-[33px] rounded-full flex justify-center items-center lg:font-bold lg:text-sm cursor-pointer"
       [ngClass]="{
-        'bg-sky-blue text-denim': currentIndex === 4,
-        'bg-transparent border-[1px] border-white text-white': currentIndex !== 4
+        'bg-sky-blue text-denim': currentStep === 3,
+        'bg-transparent border-[1px] border-white text-white': currentStep !== 3
       }"
     >
       4

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  @Input('currentStep') currentStep!: number;
   @Output() next = new EventEmitter<void>();
 
   nextStep(event: Event) {

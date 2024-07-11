@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-select-plan',
@@ -6,6 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './select-plan.component.css',
 })
 export class SelectPlanComponent {
+  @Input('currentStep') currentStep!: number;
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
 
