@@ -76,12 +76,15 @@
     <div
       class="bg-white hidden lg:flex justify-between items-center w-[450px] lg:h-[48px]"
     >
-      <div><p class="text-grey cursor-pointer">Go Back</p></div>
-      <div
-        class="lg:w-[123px] lg:h-[48px] bg-denim flex justify-center items-center font-medium text-base text-white rounded-lg ml-auto cursor-pointer"
-      >
-        Next Step
-      </div>
+    <div (click)="previousStep($event)">
+      <p class="text-grey cursor-pointer">Go Back</p>
+    </div>
+    <div
+      (click)="nextStep($event)"
+      class="lg:w-[123px] lg:h-[48px] bg-denim flex justify-center items-center font-medium text-base text-white rounded-lg ml-auto cursor-pointer"
+    >
+      Next Step
+    </div>
     </div>
   </div>
   <div
