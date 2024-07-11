@@ -48,7 +48,9 @@
             </div>
           </div>
         </div>
-        <div class="bg-very-light-gray w-[100%] h-[48px] mt-6 flex justify-center items-center gap-6">
+        <div
+          class="bg-very-light-gray w-[100%] h-[48px] mt-6 flex justify-center items-center gap-6"
+        >
           <div class=""><p class="text-body-m text-denim">Monthly</p></div>
           <div
             class="w-[38px] h-[20px] px-1 bg-purple rounded-full flex flex-col justify-center"
@@ -64,8 +66,11 @@
     <div
       class="bg-white hidden lg:flex justify-between items-center w-[450px] lg:h-[48px]"
     >
-      <div><p class="text-grey cursor-pointer">Go Back</p></div>
+      <div (click)="previousStep($event)">
+        <p class="text-grey cursor-pointer">Go Back</p>
+      </div>
       <div
+        (click)="nextStep($event)"
         class="lg:w-[123px] lg:h-[48px] bg-denim flex justify-center items-center font-medium text-base text-white rounded-lg ml-auto cursor-pointer"
       >
         Next Step
