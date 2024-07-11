@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavigationComponent } from './pages/navigation/navigation.component';
 import { SelectPlanComponent } from './pages/select-plan/select-plan.component';
-import { PickAddOnsComponent } from './pick-add-ons/pick-add-ons.component';
+import { PickAddOnsComponent } from './pages/pick-add-ons/pick-add-ons.component';
+import { FinishingUpComponent } from './pages/finishing-up/finishing-up.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PickAddOnsComponent } from './pick-add-ons/pick-add-ons.component';
     HomeComponent,
     NavigationComponent,
     SelectPlanComponent,
-    PickAddOnsComponent
+    PickAddOnsComponent,
+    FinishingUpComponent
   ],
   imports: [
     BrowserModule,
