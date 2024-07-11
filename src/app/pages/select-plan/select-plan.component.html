@@ -80,8 +80,9 @@
   <div
     class="bg-white w-[100%] h-[72px] flex items-center justify-between p-4 lg:hidden absolute bottom-0"
   >
-    <div><p class="text-grey">Go Back</p></div>
+    <div (click)="previousStep($event)"><p class="text-grey">Go Back</p></div>
     <div
+      (click)="nextStep($event)"
       class="lg:w-[123px] w-[97px] lg:h-[48px] h-[40px] bg-denim flex justify-center items-center font-medium text-sm text-white rounded-lg ml-auto cursor-pointer"
     >
       Next Step

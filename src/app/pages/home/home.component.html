@@ -55,7 +55,8 @@
     </div>
     <div class="bg-white hidden lg:block w-[450px] lg:h-[48px]">
       <div></div>
-      <div (click)="nextStep()"
+      <div
+        (click)="nextStep($event)"
         class="lg:w-[123px] lg:h-[48px] bg-denim flex justify-center items-center font-medium text-base text-white rounded-lg ml-auto cursor-pointer"
       >
         Next Step
@@ -67,6 +68,7 @@
   >
     <div></div>
     <div
+      (click)="nextStep($event)"
       class="lg:w-[123px] w-[97px] lg:h-[48px] h-[40px] bg-denim flex justify-center items-center font-medium text-sm text-white rounded-lg ml-auto cursor-pointer"
     >
       Next Step

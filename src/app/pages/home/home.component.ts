@@ -8,7 +8,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class HomeComponent {
   @Output() next = new EventEmitter<void>();
 
-  nextStep() {
+  nextStep(event: Event) {
+    event.stopPropagation();
     this.next.emit();
   }
 }
