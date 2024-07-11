@@ -49,6 +49,7 @@
         </div>
       </div>
     </div>
+    <!-- desktop next button -->
     <div
       class="bg-white hidden lg:flex justify-between items-center w-[450px] lg:h-[48px]"
     >
@@ -59,10 +60,11 @@
         (click)="nextStep($event)"
         class="lg:w-[123px] lg:h-[48px] bg-denim flex justify-center items-center font-medium text-base text-white rounded-lg ml-auto cursor-pointer"
       >
-        Next Step
+        {{currentStep === 3 ? "Confirm" : "Next Step"}}
       </div>
     </div>
   </div>
+  <!-- Mobile next button -->
   <div
     class="bg-white w-[100%] h-[72px] flex items-center justify-between p-4 lg:hidden absolute bottom-0"
   >
@@ -71,7 +73,7 @@
       (click)="nextStep($event)"
       class="lg:w-[123px] w-[97px] lg:h-[48px] h-[40px] bg-denim flex justify-center items-center font-medium text-sm text-white rounded-lg ml-auto cursor-pointer"
     >
-      Next Step
+    {{currentStep === 3 ? "Confirm" : "Next Step"}}
     </div>
   </div>
 </div>
