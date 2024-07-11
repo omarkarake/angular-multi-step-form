@@ -3,7 +3,11 @@
 >
   <div class="lg:flex lg:gap-4 items-center">
     <div
-      class="w-[33px] h-[33px] rounded-full bg-sky-blue flex justify-center items-center lg:font-bold lg:text-sm lg:text-denim cursor-pointer"
+      class="w-[33px] h-[33px] rounded-full flex justify-center items-center lg:font-bold lg:text-sm cursor-pointer"
+      [ngClass]="{
+        'bg-sky-blue text-denim': currentIndex === 1,
+        'bg-transparent border-[1px] border-white text-white': currentIndex !== 1
+      }"
     >
       1
     </div>
@@ -14,9 +18,14 @@
       <div><p class="lg:font-bold lg:text-sm lg:text-white">YOUR INFO</p></div>
     </div>
   </div>
+  
   <div class="lg:flex lg:gap-4 items-center">
     <div
-      class="w-[33px] h-[33px] rounded-full bg-transparent border-[1px] border-white flex justify-center items-center lg:font-bold lg:text-sm text-white cursor-pointer"
+      class="w-[33px] h-[33px] rounded-full flex justify-center items-center lg:font-bold lg:text-sm cursor-pointer"
+      [ngClass]="{
+        'bg-sky-blue text-denim': currentIndex === 2,
+        'bg-transparent border-[1px] border-white text-white': currentIndex !== 2
+      }"
     >
       2
     </div>
@@ -24,14 +33,17 @@
       <div>
         <p class="text-light-blue lg:font-regular lg:text-xs">STEP 2</p>
       </div>
-      <div>
-        <p class="lg:font-bold lg:text-sm lg:text-white">SELECT PLAN</p>
-      </div>
+      <div><p class="lg:font-bold lg:text-sm lg:text-white">SELECT PLAN</p></div>
     </div>
   </div>
+  
   <div class="lg:flex lg:gap-4 items-center">
     <div
-      class="w-[33px] h-[33px] rounded-full bg-transparent border-[1px] border-white flex justify-center items-center lg:font-bold lg:text-sm text-white cursor-pointer"
+      class="w-[33px] h-[33px] rounded-full flex justify-center items-center lg:font-bold lg:text-sm cursor-pointer"
+      [ngClass]="{
+        'bg-sky-blue text-denim': currentIndex === 3,
+        'bg-transparent border-[1px] border-white text-white': currentIndex !== 3
+      }"
     >
       3
     </div>
@@ -42,9 +54,14 @@
       <div><p class="lg:font-bold lg:text-sm lg:text-white">ADD-ONS</p></div>
     </div>
   </div>
+  
   <div class="lg:flex lg:gap-4 items-center">
     <div
-      class="w-[33px] h-[33px] rounded-full bg-transparent border-[1px] border-white flex justify-center items-center lg:font-bold lg:text-sm text-white cursor-pointer"
+      class="w-[33px] h-[33px] rounded-full flex justify-center items-center lg:font-bold lg:text-sm cursor-pointer"
+      [ngClass]="{
+        'bg-sky-blue text-denim': currentIndex === 4,
+        'bg-transparent border-[1px] border-white text-white': currentIndex !== 4
+      }"
     >
       4
     </div>
