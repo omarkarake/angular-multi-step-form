@@ -20,6 +20,12 @@
         (next)="nextStep()"
         (back)="previousStep()"
       ></app-select-plan>
+      <app-pick-add-ons
+        [currentStep]="currentStep"
+        *ngIf="currentStep === 2"
+        (next)="nextStep()"
+        (back)="previousStep()"
+      ></app-pick-add-ons>
     </div>
     <!-- <app-home
     [currentStep]="currentStep"
