@@ -14,6 +14,12 @@
         *ngIf="currentStep === 0"
         (next)="nextStep()"
       ></app-home>
+      <app-select-plan
+        [currentStep]="currentStep"
+        *ngIf="currentStep === 1"
+        (next)="nextStep()"
+        (back)="previousStep()"
+      ></app-select-plan>
     </div>
     <!-- <app-home
     [currentStep]="currentStep"
