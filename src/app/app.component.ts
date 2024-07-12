@@ -11,15 +11,16 @@ export class AppComponent {
   nextStep() {
     if (this.currentStep < 4) {
       this.currentStep++;
-      console.log(this.currentStep);
-      
     }
   }
   
   previousStep() {
     if (this.currentStep > 0) {
       this.currentStep--;
-      console.log(this.currentStep);
     }
+  }
+
+  onStepChange(step: number) {
+    this.currentStep = step;
   }
 }
