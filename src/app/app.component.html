@@ -1,7 +1,21 @@
 <div
   class="lg:h-screen lg:max-h-[810px] w-screen max-w-[1440px] bg-bg lg:flex lg:justify-center lg:items-center font-ubuntu"
 >
-  <app-home
+  <div
+    class="font-ubuntu lg:w-[940px] h-screen lg:h-[600px] lg:bg-white lg:shadow-custom lg:shadow-grey lg:rounded-[.9375rem] lg:p-4 flex lg:flex-row flex-col relative"
+  >
+    <app-navigation
+      [currentStep]="currentStep"
+      (stepChange)="onStepChange($event)"
+    ></app-navigation>
+    <div class="w-[100%]">
+      <app-home
+        [currentStep]="currentStep"
+        *ngIf="currentStep === 0"
+        (next)="nextStep()"
+      ></app-home>
+    </div>
+    <!-- <app-home
     [currentStep]="currentStep"
     *ngIf="currentStep === 0"
     (next)="nextStep()"
@@ -27,9 +41,21 @@
   <app-thank-you
     *ngIf="currentStep === 4"
     (back)="previousStep()"
-  ></app-thank-you>
-  <!-- <app-navigation
+  ></app-thank-you> -->
+    <!-- <app-navigation
     [currentStep]="currentStep"
     (stepChange)="onStepChange($event)"
   ></app-navigation> -->
+  </div>
+  <div
+    class="bg-white w-[100%] h-[72px] flex flex-col p-4 justify-center lg:hidden absolute bottom-0"
+  >
+    <div></div>
+    <div
+      (click)="nextStep()"
+      class="lg:w-[123px] w-[97px] lg:h-[48px] h-[40px] bg-denim flex justify-center items-center font-medium text-sm text-white rounded-lg ml-auto cursor-pointer"
+    >
+      Next Step
+    </div>
+  </div>
 </div>
