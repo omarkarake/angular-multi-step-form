@@ -38,10 +38,15 @@
       ></app-thank-you>
     </div>
   </div>
+  @if(currentStep < 4){
   <div
-    class="bg-white w-[100%] h-[72px] flex flex-col p-4 justify-center lg:hidden absolute bottom-0"
+    class="bg-white w-[100%] h-[72px] flex flex-row p-4 justify-center items-center lg:hidden absolute bottom-0"
   >
-    <div></div>
+    @if(currentStep > 0){
+    <div (click)="previousStep()">
+      <p class="text-grey cursor-pointer">Go Back</p>
+    </div>
+    }
     <div
       (click)="nextStep()"
       class="lg:w-[123px] w-[97px] lg:h-[48px] h-[40px] bg-denim flex justify-center items-center font-medium text-sm text-white rounded-lg ml-auto cursor-pointer"
@@ -49,4 +54,5 @@
       Next Step
     </div>
   </div>
+  }
 </div>
