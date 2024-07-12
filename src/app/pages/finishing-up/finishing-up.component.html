@@ -1,66 +1,68 @@
 <div
-  class="font-ubuntu lg:w-[940px] h-screen lg:h-[600px] lg:bg-white lg:shadow-custom lg:shadow-grey lg:rounded-[.9375rem] lg:p-4 lg:flex relative"
+  class="font-ubuntu lg:w-[940px] h-screen lg:h-[600px] lg:bg-white lg:shadow-custom lg:shadow-grey lg:rounded-[.9375rem] lg:p-4 flex lg:flex-row flex-col relative"
 >
   <div class="rounded-xl"><app-navigation [currentStep]="currentStep" /></div>
-  <div
-    class="w-[90%] h-auto top-[0px] mt-[350px] lg:mt-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-[10px] lg:w-[100%] lg:h-[100%] px-6 pt-8 pb-2 lg:flex lg:flex-col lg:items-center lg:justify-between lg:pt-14 lg:pb-8 bg-white absolute lg:relative lg:top-0 lg:left-0 lg:transform-none lg:-translate-x-0 lg:-translate-y-0"
-  >
-    <div class="lg:w-[450px] lg:h-[372px] flex flex-col gap-10">
-      <div>
-        <p class="text-heading">Finishing up</p>
-        <p class="text-body-l text-grey">
-          Double-check everything looks OK before confirming.
-        </p>
-      </div>
-      <div class="bg-very-light-gray flex flex-col gap-3 p-4">
-        <div class="flex justify-between items-center">
-          <div class="flex flex-col gap-[3px]">
-            <p class="text-sm lg:text-base text-denim font-medium">
-              Arcade (Yearly)
-            </p>
-            <p class="text-sm text-grey underline">Change</p>
-          </div>
-          <div>
-            <p class="font-bold text lg:text-base text-denim">$90/yr</p>
-          </div>
-        </div>
-        <div class="h-[1px] bg-grey w-[100%]"></div>
-        <div class="flex justify-between items-center">
-          <div class="">
-            <p class="text-sm text-grey">Online service</p>
-          </div>
-          <div><p class="font-bold text-sm text-denim">+$10/yr</p></div>
-        </div>
-        <div class="flex justify-between items-center">
-          <div class="">
-            <p class="text-sm text-grey">Larger storage</p>
-          </div>
-          <div><p class="font-bold text-sm text-denim">+$20/yr</p></div>
-        </div>
-      </div>
-      <div class="flex justify-between items-center p-4">
-        <div class="">
-          <p class="text-sm text-grey">Total (per year)</p>
-        </div>
+  <div class="flex justify-center w-[100%]">
+    <div
+      class="w-[90%] h-auto bg-white -mt-[73px] lg:w-[100%] lg:h-[100%] lg:-mt-0 rounded-[10px] px-6 pt-8 pb-5 lg:flex lg:flex-col lg:items-center lg:justify-between lg:pt-14 lg:pb-8"
+    >
+      <div class="lg:w-[450px] lg:h-[372px] flex flex-col gap-10">
         <div>
-          <p class="font-bold text-base lg:text-[20px] leading-5 text-purple">
-            $120/yr
+          <p class="text-heading">Finishing up</p>
+          <p class="text-body-l text-grey">
+            Double-check everything looks OK before confirming.
           </p>
         </div>
+        <div class="bg-very-light-gray flex flex-col gap-3 p-4">
+          <div class="flex justify-between items-center">
+            <div class="flex flex-col gap-[3px]">
+              <p class="text-sm lg:text-base text-denim font-medium">
+                Arcade (Yearly)
+              </p>
+              <p class="text-sm text-grey underline">Change</p>
+            </div>
+            <div>
+              <p class="font-bold text lg:text-base text-denim">$90/yr</p>
+            </div>
+          </div>
+          <div class="h-[1px] bg-grey w-[100%]"></div>
+          <div class="flex justify-between items-center">
+            <div class="">
+              <p class="text-sm text-grey">Online service</p>
+            </div>
+            <div><p class="font-bold text-sm text-denim">+$10/yr</p></div>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="">
+              <p class="text-sm text-grey">Larger storage</p>
+            </div>
+            <div><p class="font-bold text-sm text-denim">+$20/yr</p></div>
+          </div>
+        </div>
+        <div class="flex justify-between items-center p-4">
+          <div class="">
+            <p class="text-sm text-grey">Total (per year)</p>
+          </div>
+          <div>
+            <p class="font-bold text-base lg:text-[20px] leading-5 text-purple">
+              $120/yr
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-    <!-- desktop next button -->
-    <div
-      class="bg-white hidden lg:flex justify-between items-center w-[450px] lg:h-[48px]"
-    >
-      <div (click)="previousStep($event)">
-        <p class="text-grey cursor-pointer">Go Back</p>
-      </div>
+      <!-- desktop next button -->
       <div
-        (click)="nextStep($event)"
-        class="lg:w-[123px] lg:h-[48px] bg-denim flex justify-center items-center font-medium text-base text-white rounded-lg ml-auto cursor-pointer"
+        class="bg-white hidden lg:flex justify-between items-center w-[450px] lg:h-[48px]"
       >
-        {{ currentStep === 3 ? "Confirm" : "Next Step" }}
+        <div (click)="previousStep($event)">
+          <p class="text-grey cursor-pointer">Go Back</p>
+        </div>
+        <div
+          (click)="nextStep($event)"
+          class="lg:w-[123px] lg:h-[48px] bg-denim flex justify-center items-center font-medium text-base text-white rounded-lg ml-auto cursor-pointer"
+        >
+          {{ currentStep === 3 ? "Confirm" : "Next Step" }}
+        </div>
       </div>
     </div>
   </div>
