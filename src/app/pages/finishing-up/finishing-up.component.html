@@ -1,13 +1,9 @@
-<div
-  class="font-ubuntu lg:w-[940px] h-screen lg:h-[600px] lg:bg-white lg:shadow-custom lg:shadow-grey lg:rounded-[.9375rem] lg:p-4 flex lg:flex-row flex-col relative"
->
-  <div class="rounded-xl"><app-navigation [currentStep]="currentStep" /></div>
-  <div class="flex justify-center w-[100%]">
-    <div
-      class="w-[90%] h-auto bg-white -mt-[73px] lg:w-[100%] lg:h-[100%] lg:-mt-0 rounded-[10px] px-6 pt-8 pb-5 lg:flex lg:flex-col lg:items-center lg:justify-between lg:pt-14 lg:pb-8"
-    >
-      <div class="lg:w-[450px] lg:h-[372px] flex flex-col gap-10">
-        <div>
+<div class="flex justify-center w-[100%] lg:h-[100%]">
+  <div
+    class="w-[90%] bg-white h-auto -mt-[73px] lg:w-[100%] lg:h-[100%] lg:-mt-0 rounded-[10px] px-6 pt-8 pb-5 lg:flex lg:flex-col lg:items-center lg:justify-between lg:pt-14 lg:pb-8"
+  >
+    <div class="lg:w-[450px] lg:h-[372px] flex flex-col gap-10">
+      <div>
           <p class="text-heading">Finishing up</p>
           <p class="text-body-l text-grey">
             Double-check everything looks OK before confirming.
@@ -78,4 +74,3 @@
       {{ currentStep === 3 ? "Confirm" : "Next Step" }}
     </div>
   </div>
-</div>

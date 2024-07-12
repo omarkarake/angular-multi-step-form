@@ -26,38 +26,17 @@
         (next)="nextStep()"
         (back)="previousStep()"
       ></app-pick-add-ons>
+      <app-finishing-up
+        [currentStep]="currentStep"
+        *ngIf="currentStep === 3"
+        (next)="nextStep()"
+        (back)="previousStep()"
+      ></app-finishing-up>
+      <app-thank-you
+        *ngIf="currentStep === 4"
+        (back)="previousStep()"
+      ></app-thank-you>
     </div>
-    <!-- <app-home
-    [currentStep]="currentStep"
-    *ngIf="currentStep === 0"
-    (next)="nextStep()"
-  ></app-home>
-  <app-select-plan
-    [currentStep]="currentStep"
-    *ngIf="currentStep === 1"
-    (next)="nextStep()"
-    (back)="previousStep()"
-  ></app-select-plan>
-  <app-pick-add-ons
-    [currentStep]="currentStep"
-    *ngIf="currentStep === 2"
-    (next)="nextStep()"
-    (back)="previousStep()"
-  ></app-pick-add-ons>
-  <app-finishing-up
-    [currentStep]="currentStep"
-    *ngIf="currentStep === 3"
-    (next)="nextStep()"
-    (back)="previousStep()"
-  ></app-finishing-up>
-  <app-thank-you
-    *ngIf="currentStep === 4"
-    (back)="previousStep()"
-  ></app-thank-you> -->
-    <!-- <app-navigation
-    [currentStep]="currentStep"
-    (stepChange)="onStepChange($event)"
-  ></app-navigation> -->
   </div>
   <div
     class="bg-white w-[100%] h-[72px] flex flex-col p-4 justify-center lg:hidden absolute bottom-0"
