@@ -14,7 +14,7 @@ export class HomeComponent {
   constructor(fb: FormBuilder) {
     this.homeForm = fb.group({
       name: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', Validators.required],
     });
   }
@@ -22,5 +22,15 @@ export class HomeComponent {
   nextStep(event: Event) {
     event.stopPropagation();
     this.next.emit();
+  }
+
+  get name() {
+    return this.homeForm.get('name');
+  }
+  get email() {
+    return this.homeForm.get('email');
+  }
+  get phoneNumber() {
+    return this.homeForm.get('phoneNumber');
   }
 }

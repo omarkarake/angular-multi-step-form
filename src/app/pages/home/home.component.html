@@ -12,37 +12,67 @@
       <div>
         <form [formGroup]="homeForm" class="flex flex-col gap-4 md:gap-6">
           <div>
-            <div><p class="text-body-m text-denim">Name</p></div>
+            <div class="flex justify-between items-center">
+              <p class="text-body-m text-denim">Name</p>
+              <div *ngIf="name?.touched && name?.invalid">
+                <p class="text-sm font-bold text-red-errors ml-auto" *ngIf="name?.errors?.['required']">
+                  This field is required
+                </p>
+              </div>
+            </div>
             <div
               class="bg-transparent border-[1px] border-border-color rounded-lg w-[100%] lg:w-[450px] h-[40px] lg:h-[48px] pl-4 flex flex-col justify-center mt-2"
             >
-              <input
+              <input 
+                required
                 class="outline-none border-none placeholder-grey leading-[25px]"
                 type="text"
+                formControlName="name"
                 placeholder="e.g. Stephen King"
               />
             </div>
           </div>
           <div>
-            <div><p class="text-body-m text-denim">Email Address</p></div>
+            <div class="flex justify-between items-center">
+              <p class="text-body-m text-denim">Email Address</p>
+              <div *ngIf="email?.touched && email?.invalid">
+                <p class="text-sm font-bold text-red-errors ml-auto" *ngIf="email?.errors?.['required']">
+                  This field is required
+                </p>
+                <p class="text-sm font-bold text-red-errors ml-auto" *ngIf="email?.errors?.['email']">
+                  email is invalid
+                </p>
+              </div>
+            </div>
             <div
               class="bg-transparent border-[1px] border-border-color rounded-lg w-[100%] lg:w-[450px] h-[40px] lg:h-[48px] pl-4 flex flex-col justify-center mt-2"
             >
-              <input
+              <input 
+                required
                 class="outline-none border-none placeholder-grey leading-[25px]"
                 type="text"
+                formControlName="email"
                 placeholder="e.g. stephenking@lorem.com"
               />
             </div>
           </div>
           <div>
-            <div><p class="text-body-m text-denim">Phone Number</p></div>
+            <div class="flex justify-between items-center">
+              <p class="text-body-m text-denim">Phone Number</p>
+              <div *ngIf="phoneNumber?.touched && phoneNumber?.invalid">
+                <p class="text-sm font-bold text-red-errors ml-auto" *ngIf="phoneNumber?.errors?.['required']">
+                  This field is required
+                </p>
+              </div>
+            </div>
             <div
               class="bg-transparent border-[1px] border-border-color rounded-lg w-[100%] lg:w-[450px] h-[40px] lg:h-[48px] pl-4 flex flex-col justify-center mt-2"
             >
-              <input
+              <input 
+                required
                 class="outline-none border-none placeholder-grey leading-[25px]"
                 type="text"
+                formControlName="phoneNumber"
                 placeholder="e.g. +1 234 567 890"
               />
             </div>
