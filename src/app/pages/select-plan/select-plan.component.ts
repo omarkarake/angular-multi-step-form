@@ -10,6 +10,12 @@ export class SelectPlanComponent {
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
 
+  selectedPlan: string | null = null;
+
+  selectPlan(plan: string) {
+    this.selectedPlan = plan;
+  }
+
   nextStep(event: Event) {
     event.stopPropagation();
     this.next.emit();
