@@ -12,6 +12,8 @@ interface AddOn {
   styleUrl: './finishing-up.component.css',
 })
 export class FinishingUpComponent implements OnInit {
+  
+  @Output() disableNav = new EventEmitter<void>();
   @Input('currentStep') currentStep!: number;
   @Input() form!: FormGroup;
   @Output() next = new EventEmitter<void>();
@@ -38,6 +40,7 @@ export class FinishingUpComponent implements OnInit {
   }
   nextStep(event: Event) {
     event.stopPropagation();
+    this.disableNav.emit();
     this.next.emit();
   }
 

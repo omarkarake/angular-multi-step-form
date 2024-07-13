@@ -55,5 +55,6 @@ export class AppComponent {
 
   disableNav(){
     this.navDisableState = true;
+    console.log(this.navDisableState);
   }
 }

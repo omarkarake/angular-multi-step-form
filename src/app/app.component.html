@@ -4,11 +4,15 @@
   <div
     class="font-ubuntu lg:w-[940px] h-screen lg:h-[600px] lg:bg-white lg:shadow-custom lg:shadow-grey lg:rounded-[.9375rem] lg:p-4 flex lg:flex-row flex-col relative"
   >
-    <app-navigation
-      [navDisableState]="navDisableState"
-      [currentStep]="currentStep"
-      (stepChange)="onStepChange($event)"
-    ></app-navigation>
+    <div
+      [ngClass]="{ 'pointer-events-none': navDisableState === true }"
+    >
+      <app-navigation
+        [navDisableState]="navDisableState"
+        [currentStep]="currentStep"
+        (stepChange)="onStepChange($event)"
+      ></app-navigation>
+    </div>
     <div class="w-[100%]">
       <app-home
         [currentStep]="currentStep"
@@ -41,7 +45,7 @@
         [form]="homeForm"
       ></app-finishing-up>
       <app-thank-you
-      (disableNav)="disableNav()"
+        (disableNav)="disableNav()"
         *ngIf="currentStep === 4"
         (back)="previousStep()"
       ></app-thank-you>

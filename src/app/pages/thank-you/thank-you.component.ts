@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class ThankYouComponent implements OnInit {
   @Output() disableNav = new EventEmitter<void>();
+
   ngOnInit(): void {
     this.disableNav.emit();
   }
