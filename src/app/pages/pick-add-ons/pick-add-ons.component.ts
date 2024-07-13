@@ -63,6 +63,10 @@ export class PickAddOnsComponent implements OnInit {
     },
   ];
 
+  get hasSelectedAddOns(): boolean {
+    return this.addOns.some(addOn => addOn.selected);
+  }
+
   getTheFiltered(arr: any) {
     return arr.filter((obj: any) => obj?.price.slice(-2) === this.duration);
   }
