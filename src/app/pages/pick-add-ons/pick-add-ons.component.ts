@@ -11,8 +11,10 @@ export class PickAddOnsComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
 
+  duration: string | undefined = 'mo';
   ngOnInit(): void {
-    console.log("selected plan duration", this.selectedPlan?.price.slice(-2));
+    this.duration = this.selectedPlan?.price.slice(-2);
+    console.log(this.duration);
   }
   addOns = [
     {
@@ -31,6 +33,24 @@ export class PickAddOnsComponent implements OnInit {
       name: 'Customizable profile',
       description: 'Custom theme on your profile',
       price: '+$2/mo',
+      selected: false,
+    },
+    {
+      name: 'Online service',
+      description: 'Access to multiplayer games',
+      price: '+$10/yr',
+      selected: false,
+    },
+    {
+      name: 'Larger storage',
+      description: 'Extra 1TB of cloud save',
+      price: '+$20/yr',
+      selected: false,
+    },
+    {
+      name: 'Customizable profile',
+      description: 'Custom theme on your profile',
+      price: '+$20/yr',
       selected: false,
     },
   ];
