@@ -1,5 +1,6 @@
+// src/app/home/home.component.ts
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -7,17 +8,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  @Input('currentStep') currentStep!: number;
+  @Input() currentStep!: number;
+  @Input() form!: FormGroup;
   @Output() next = new EventEmitter<void>();
-
-  homeForm: FormGroup;
-  constructor(fb: FormBuilder) {
-    this.homeForm = fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', Validators.required],
-    });
-  }
 
   nextStep(event: Event) {
     event.stopPropagation();
@@ -25,12 +18,12 @@ export class HomeComponent {
   }
 
   get name() {
-    return this.homeForm.get('name');
+    return this.form.get('name');
   }
   get email() {
-    return this.homeForm.get('email');
+    return this.form.get('email');
   }
   get phoneNumber() {
-    return this.homeForm.get('phoneNumber');
+    return this.form.get('phoneNumber');
   }
 }

@@ -13,6 +13,7 @@
         [currentStep]="currentStep"
         *ngIf="currentStep === 0"
         (next)="nextStep()"
+        [form]="homeForm"
       ></app-home>
       <app-select-plan
         [currentStep]="currentStep"

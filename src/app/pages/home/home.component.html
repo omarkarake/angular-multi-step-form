@@ -10,7 +10,7 @@
         </p>
       </div>
       <div>
-        <form [formGroup]="homeForm" class="flex flex-col gap-4 md:gap-6">
+        <form [formGroup]="form" class="flex flex-col gap-4 md:gap-6">
           <div>
             <div class="flex justify-between items-center">
               <p class="text-body-m text-denim">Name</p>
@@ -29,6 +29,7 @@
                 type="text"
                 formControlName="name"
                 placeholder="e.g. Stephen King"
+                [value]="this.form.value.name"
               />
             </div>
           </div>
@@ -53,6 +54,7 @@
                 type="text"
                 formControlName="email"
                 placeholder="e.g. stephenking@lorem.com"
+                [value]="this.form.value.email"
               />
             </div>
           </div>
@@ -74,6 +76,7 @@
                 type="text"
                 formControlName="phoneNumber"
                 placeholder="e.g. +1 234 567 890"
+                [value]="this.form.value.phoneNumber"
               />
             </div>
           </div>
