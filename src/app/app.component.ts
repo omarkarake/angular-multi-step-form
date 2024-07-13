@@ -17,22 +17,32 @@ export class AppComponent {
       phoneNumber: ['', Validators.required],
     });
   }
-  handlePlanSelected(event: { plan: string, price: string }) {
-    console.log(this.homeForm.value.planSelection = event);
-    console.log("new selection: ",this.homeForm.value.planSelection);
-    
+  handlePlanSelected(event: { plan: string; price: string }) {
+    console.log((this.homeForm.value.planSelection = event));
+    console.log('new selection: ', this.homeForm.value.planSelection);
+
     // console.log(event); // This will log the selected plan object, e.g., { plan: 'arcade', price: '$9/mo' }
   }
 
-  handlePlanSelectedDefault(event: { plan: string, price: string }) {
-    if(this.homeForm.value.planSelection === undefined){
-      console.log("default selection: ", this.homeForm.value.planSelection = event);
+  handlePlanSelectedDefault(event: { plan: string; price: string }) {
+    console.log(this.homeForm.value.planSelection ? 'true' : 'false');
+    console.log('initial form data on second page: ', this.homeForm.value);
+
+    if (this.homeForm.value.planSelection === undefined) {
+      console.log(
+        'default selection: ',
+        (this.homeForm.value.planSelection = event)
+      );
+      console.log('initial form value on second page: ', this.homeForm.value);
+
       // console.log(this.homeForm.value);
-    }else{
-      console.log('got planselection already: ', this.homeForm.value.planSelection);
+    } else {
+      console.log(
+        'got planselection already: ',
+        this.homeForm.value.planSelection
+      );
     }
-    
-    
+
     // console.log(event); // This will log the selected plan object, e.g., { plan: 'arcade', price: '$9/mo' }
   }
 
@@ -40,12 +50,14 @@ export class AppComponent {
     if (this.currentStep < 4) {
       this.currentStep++;
     }
+    console.log('next: ', this.homeForm.value);
   }
 
   previousStep() {
     if (this.currentStep > 0) {
       this.currentStep--;
     }
+    console.log('back: ', this.homeForm.value);
   }
 
   onStepChange(step: number) {
