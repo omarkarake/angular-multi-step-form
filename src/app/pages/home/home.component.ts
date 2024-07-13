@@ -1,4 +1,3 @@
-// src/app/home/home.component.ts
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
@@ -14,7 +13,11 @@ export class HomeComponent {
 
   nextStep(event: Event) {
     event.stopPropagation();
-    this.next.emit();
+    if (this.form.valid) {
+      this.next.emit();
+    } else {
+      this.form.markAllAsTouched(); // To show validation errors
+    }
   }
 
   get name() {

@@ -18,6 +18,9 @@
                 <p class="text-sm font-bold text-red-errors ml-auto" *ngIf="name?.errors?.['required']">
                   This field is required
                 </p>
+                <p class="text-sm font-bold text-red-errors ml-auto" *ngIf="name?.errors?.['invalidName']">
+                  at least 3 characters only
+                </p>
               </div>
             </div>
             <div
@@ -29,7 +32,6 @@
                 type="text"
                 formControlName="name"
                 placeholder="e.g. Stephen King"
-                [value]="this.form.value.name"
               />
             </div>
           </div>
@@ -41,7 +43,7 @@
                   This field is required
                 </p>
                 <p class="text-sm font-bold text-red-errors ml-auto" *ngIf="email?.errors?.['email']">
-                  email is invalid
+                  Email is invalid
                 </p>
               </div>
             </div>
@@ -51,10 +53,9 @@
               <input 
                 required
                 class="outline-none border-none placeholder-grey leading-[25px]"
-                type="text"
+                type="email"
                 formControlName="email"
                 placeholder="e.g. stephenking@lorem.com"
-                [value]="this.form.value.email"
               />
             </div>
           </div>
@@ -64,6 +65,9 @@
               <div *ngIf="phoneNumber?.touched && phoneNumber?.invalid">
                 <p class="text-sm font-bold text-red-errors ml-auto" *ngIf="phoneNumber?.errors?.['required']">
                   This field is required
+                </p>
+                <p class="text-sm font-bold text-red-errors ml-auto" *ngIf="phoneNumber?.errors?.['invalidPhoneNumber']">
+                  at least 3 digits only
                 </p>
               </div>
             </div>
@@ -76,7 +80,6 @@
                 type="text"
                 formControlName="phoneNumber"
                 placeholder="e.g. +1 234 567 890"
-                [value]="this.form.value.phoneNumber"
               />
             </div>
           </div>
@@ -88,6 +91,8 @@
       <div
         (click)="nextStep($event)"
         class="lg:w-[123px] lg:h-[48px] bg-denim flex justify-center items-center font-medium text-base text-white rounded-lg ml-auto cursor-pointer"
+        [ngClass]="{ 'cursor-not-allowed opacity-50': form.invalid }"
+        [attr.disabled]="form.invalid ? true : null"
       >
         Next Step
       </div>
@@ -101,6 +106,8 @@
   <div
     (click)="nextStep($event)"
     class="lg:w-[123px] w-[97px] lg:h-[48px] h-[40px] bg-denim flex justify-center items-center font-medium text-sm text-white rounded-lg ml-auto cursor-pointer"
+    [ngClass]="{ 'cursor-not-allowed opacity-50': form.invalid }"
+    [attr.disabled]="form.invalid ? true : null"
   >
     Next Step
   </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +15,9 @@ export class AppComponent {
 
   constructor(private fb: FormBuilder) {
     this.homeForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(3), this.nameValidator]],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', Validators.required],
+      phoneNumber: ['', [Validators.required, Validators.minLength(3), this.phoneNumberValidator]],
       planSelection: null,
       addOns: []
     });
@@ -56,5 +56,22 @@ export class AppComponent {
   disableNav(){
     this.navDisableState = true;
     console.log(this.navDisableState);
+  }
+  nameValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    const namePattern = /^[A-Za-z\s]+$/; // Only letters and spaces
+    if (value && (!namePattern.test(value) || value.length < 3)) {
+      return { invalidName: true };
+    }
+    return null;
+  }
+
+  phoneNumberValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    const phonePattern = /^[0-9]+$/; // Only numbers
+    if (value && (!phonePattern.test(value) || value.length < 3)) {
+      return { invalidPhoneNumber: true };
+    }
+    return null;
   }
 }
