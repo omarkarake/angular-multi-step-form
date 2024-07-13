@@ -73,7 +73,9 @@ export class PickAddOnsComponent implements OnInit {
     console.log('initial addons on render: ', this.addOns);
     console.log('initial selected addons: ', this.selectedAddOns);
     this.addOns.forEach((addOn) => {
-      const selected = this.selectedAddOns?.some((selectedAddOn) => selectedAddOn.name === addOn.name);
+      const selected = this.selectedAddOns?.some((selectedAddOn) => 
+        selectedAddOn.name === addOn.name && selectedAddOn.price === addOn.price
+      );
       if (selected) {
         addOn.selected = true;
       }
