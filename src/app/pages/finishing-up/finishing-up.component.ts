@@ -12,9 +12,13 @@ export class FinishingUpComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
   formValue: any;
+  durationString: any;
   ngOnInit(): void {
     this.formValue = this.form.value;
-    console.log("initial render on finishing up: ",this.formValue);
+    console.log('initial render on finishing up: ', this.formValue);
+    this.formValue.planSelection.price.slice(-2) === 'mo'
+      ? (this.durationString = 'Monthly')
+      : (this.durationString = 'Yearly');
   }
   nextStep(event: Event) {
     event.stopPropagation();

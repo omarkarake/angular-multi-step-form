@@ -13,12 +13,12 @@
           <div class="flex justify-between items-center">
             <div class="flex flex-col gap-[3px]">
               <p class="text-sm lg:text-base text-denim font-medium">
-                {{formValue?.planSelection?.plan}}(Yearly)
+                {{formValue?.planSelection?.plan | capitalize}}({{durationString}})
               </p>
               <p class="text-sm text-grey underline">Change</p>
             </div>
             <div>
-              <p class="font-bold text lg:text-base text-denim">$90/yr</p>
+              <p class="font-bold text lg:text-base text-denim">{{formValue?.planSelection?.price}}</p>
             </div>
           </div>
           <div class="h-[1px] bg-grey w-[100%]"></div>
