@@ -3,17 +3,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-select-plan',
   templateUrl: './select-plan.component.html',
-  styleUrl: './select-plan.component.css',
+  styleUrls: ['./select-plan.component.css'],
 })
 export class SelectPlanComponent {
   @Input('currentStep') currentStep!: number;
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
 
-  selectedPlan: string | null = null;
-  selectedPlanDue: string | null = 'monthly';
+  selectedPlan: 'arcade' | 'advanced' | 'pro' | null = null;
+  selectedPlanDue: 'monthly' | 'yearly' = 'monthly';
 
-  selectPlan(plan: string) {
+  selectPlan(plan: 'arcade' | 'advanced' | 'pro') {
     this.selectedPlan = plan;
   }
 
@@ -21,7 +21,24 @@ export class SelectPlanComponent {
     this.selectedPlanDue === 'monthly'
       ? (this.selectedPlanDue = 'yearly')
       : (this.selectedPlanDue = 'monthly');
-      console.log(this.selectedPlanDue);
+  }
+
+  getPlanPrice(plan: 'arcade' | 'advanced' | 'pro'): string {
+    const prices = {
+      arcade: {
+        monthly: '$9/mo',
+        yearly: '$90/yr',
+      },
+      advanced: {
+        monthly: '$12/mo',
+        yearly: '$120/yr',
+      },
+      pro: {
+        monthly: '$15/mo',
+        yearly: '$150/yr',
+      },
+    };
+    return prices[plan][this.selectedPlanDue];
   }
 
   nextStep(event: Event) {
