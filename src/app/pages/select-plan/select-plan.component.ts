@@ -9,12 +9,14 @@ export class SelectPlanComponent {
   @Input('currentStep') currentStep!: number;
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
+  @Output() planSelected = new EventEmitter<{ plan: string, price: string }>();
 
   selectedPlan: 'arcade' | 'advanced' | 'pro' | null = null;
   selectedPlanDue: 'monthly' | 'yearly' = 'monthly';
 
   selectPlan(plan: 'arcade' | 'advanced' | 'pro') {
     this.selectedPlan = plan;
+    this.planSelected.emit({ plan, price: this.getPlanPrice(plan) });
   }
 
   onClickSelectedPlanDue() {

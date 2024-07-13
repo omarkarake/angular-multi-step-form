@@ -17,6 +17,13 @@ export class AppComponent {
       phoneNumber: ['', Validators.required],
     });
   }
+  handlePlanSelected(event: { plan: string, price: string }) {
+    console.log(this.homeForm.value.planSelection = event);
+    console.log(this.homeForm.value);
+    
+    // console.log(event); // This will log the selected plan object, e.g., { plan: 'arcade', price: '$9/mo' }
+  }
+
   nextStep() {
     if (this.currentStep < 4) {
       this.currentStep++;
