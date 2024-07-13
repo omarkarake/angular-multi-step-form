@@ -11,7 +11,7 @@ export class FinishingUpComponent implements OnInit {
   @Input() form!: FormGroup;
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
-  formValue: object[] | null = null;
+  formValue: any;
   ngOnInit(): void {
     this.formValue = this.form.value;
     console.log("initial render on finishing up: ",this.formValue);
