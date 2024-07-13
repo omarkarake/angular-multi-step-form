@@ -15,8 +15,6 @@ export class HomeComponent {
   nextStep(event: Event) {
     event.stopPropagation();
     this.next.emit();
-    console.log(this.form.value);
-    
   }
 
   get name() {

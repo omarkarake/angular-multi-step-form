@@ -11,7 +11,7 @@ export class SelectPlanComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
   @Output() planSelected = new EventEmitter<{ plan: string; price: string }>();
-
+  // here
   selectedPlanType: 'arcade' | 'advanced' | 'pro' = 'arcade';
   selectedPlanDue: 'monthly' | 'yearly' = 'monthly';
 
@@ -30,26 +30,45 @@ export class SelectPlanComponent implements OnInit {
     },
   };
 
-  ngOnInit(): void {
-    if (this.selectedPlan) {
-      this.selectedPlanType = this.selectedPlan.plan as 'arcade' | 'advanced' | 'pro';
-      this.selectedPlanDue = this.selectedPlan.price.includes('/yr') ? 'yearly' : 'monthly';
-    } else {
-      this.planSelected.emit({ plan: this.selectedPlanType, price: this.prices.arcade.monthly });
-    }
-  }
-
   selectPlan(plan: 'arcade' | 'advanced' | 'pro') {
     this.selectedPlanType = plan;
     this.planSelected.emit({ plan, price: this.getPlanPrice(plan) });
   }
 
   onClickSelectedPlanDue() {
-    this.selectedPlanDue = this.selectedPlanDue === 'monthly' ? 'yearly' : 'monthly';
+    this.selectedPlanDue =
+      this.selectedPlanDue === 'monthly' ? 'yearly' : 'monthly';
   }
 
+  // and here
   getPlanPrice(plan: 'arcade' | 'advanced' | 'pro'): string {
     return this.prices[plan][this.selectedPlanDue];
+  }
+
+  ngOnInit(): void {
+    if (this.selectedPlan) {
+      if (this.selectedPlan.plan !== 'arcade') {
+        console.log('selected plan type', this.selectedPlan.plan);
+        console.log('selected plan type', this.selectedPlan.price);
+
+        this.planSelected.emit({
+          plan: this.selectedPlan.plan,
+          price: this.selectedPlan.price,
+        });
+      }
+      this.selectedPlanType = this.selectedPlan.plan as
+        | 'arcade'
+        | 'advanced'
+        | 'pro';
+      this.selectedPlanDue = this.selectedPlan.price.includes('/yr')
+        ? 'yearly'
+        : 'monthly';
+    } else {
+      this.planSelected.emit({
+        plan: this.selectedPlanType,
+        price: this.prices.arcade.monthly,
+      });
+    }
   }
 
   nextStep(event: Event) {
