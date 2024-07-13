@@ -37,6 +37,7 @@
         *ngIf="currentStep === 3"
         (next)="nextStep()"
         (back)="previousStep()"
+        [form]="homeForm"
       ></app-finishing-up>
       <app-thank-you
         *ngIf="currentStep === 4"
