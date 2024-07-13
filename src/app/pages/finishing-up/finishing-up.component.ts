@@ -17,8 +17,8 @@ export class FinishingUpComponent implements OnInit {
     this.formValue = this.form.value;
     console.log('initial render on finishing up: ', this.formValue);
     this.formValue.planSelection.price.slice(-2) === 'mo'
-      ? (this.durationString = 'Monthly')
-      : (this.durationString = 'Yearly');
+      ? (this.durationString = 'month')
+      : (this.durationString = 'year');
   }
   nextStep(event: Event) {
     event.stopPropagation();
