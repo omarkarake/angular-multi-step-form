@@ -15,7 +15,7 @@
               <p class="text-sm lg:text-base text-denim font-medium">
                 {{formValue?.planSelection?.plan | capitalize}}({{durationString+'ly'|capitalize}})
               </p>
-              <p class="text-sm text-grey underline">Change</p>
+              <p class="text-sm text-grey underline cursor-pointer" (click)="onStepClick(1)">Change</p>
             </div>
             <div>
               <p class="font-bold text lg:text-base text-denim">{{formValue?.planSelection?.price}}</p>

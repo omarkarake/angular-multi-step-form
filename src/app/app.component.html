@@ -43,6 +43,7 @@
         (next)="nextStep()"
         (back)="previousStep()"
         [form]="homeForm"
+        (stepChange)="onStepChange($event)"
       ></app-finishing-up>
       <app-thank-you
         (disableNav)="disableNav()"

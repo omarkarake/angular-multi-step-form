@@ -14,6 +14,7 @@ interface AddOn {
 export class FinishingUpComponent implements OnInit {
   
   @Output() disableNav = new EventEmitter<void>();
+  @Output() stepChange = new EventEmitter<number>();
   @Input('currentStep') currentStep!: number;
   @Input() form!: FormGroup;
   @Output() next = new EventEmitter<void>();
@@ -37,6 +38,9 @@ export class FinishingUpComponent implements OnInit {
     this.formValue.planSelection.price.slice(-2) === 'mo'
       ? (this.durationString = 'month')
       : (this.durationString = 'year');
+  }
+  onStepClick(step: number) {
+    this.stepChange.emit(step);
   }
   nextStep(event: Event) {
     event.stopPropagation();
