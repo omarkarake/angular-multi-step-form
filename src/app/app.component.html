@@ -1,9 +1,5 @@
-<div
-  class="lg:h-screen lg:max-h-[810px] w-screen max-w-[1440px] bg-bg lg:flex lg:justify-center lg:items-center font-ubuntu"
->
-  <div
-    class="font-ubuntu lg:w-[940px] h-screen lg:h-[600px] lg:bg-white lg:shadow-custom lg:shadow-grey lg:rounded-[.9375rem] lg:p-4 flex lg:flex-row flex-col relative"
-  >
+<div class="lg:h-screen lg:max-h-[810px] w-screen max-w-[1440px] bg-bg lg:flex lg:justify-center lg:items-center font-ubuntu">
+  <div class="font-ubuntu lg:w-[940px] h-screen lg:h-[600px] lg:bg-white lg:shadow-custom lg:shadow-grey lg:rounded-[.9375rem] lg:p-4 flex lg:flex-row flex-col relative">
     <app-navigation
       [currentStep]="currentStep"
       (stepChange)="onStepChange($event)"
@@ -16,12 +12,12 @@
         [form]="homeForm"
       ></app-home>
       <app-select-plan
-      (planSelected)="handlePlanSelected($event)"
-      (planSelectedDefault)="handlePlanSelectedDefault($event)"
         [currentStep]="currentStep"
+        [selectedPlan]="selectedPlan"
         *ngIf="currentStep === 1"
         (next)="nextStep()"
         (back)="previousStep()"
+        (planSelected)="handlePlanSelected($event)"
       ></app-select-plan>
       <app-pick-add-ons
         [currentStep]="currentStep"
@@ -41,21 +37,4 @@
       ></app-thank-you>
     </div>
   </div>
-  @if(currentStep < 4){
-  <div
-    class="bg-white w-[100%] h-[72px] flex flex-row p-4 justify-center items-center lg:hidden absolute bottom-0"
-  >
-    @if(currentStep > 0){
-    <div (click)="previousStep()">
-      <p class="text-grey cursor-pointer">Go Back</p>
-    </div>
-    }
-    <div
-      (click)="nextStep()"
-      class="lg:w-[123px] w-[97px] lg:h-[48px] h-[40px] bg-denim flex justify-center items-center font-medium text-sm text-white rounded-lg ml-auto cursor-pointer"
-    >
-      Next Step
-    </div>
-  </div>
-  }
 </div>

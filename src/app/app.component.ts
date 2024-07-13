@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent {
   currentStep = 0; // 0: Home, 1: Select Plan, 2: Pick Add-ons, 3: Finishing Up, 4: Thank You
   homeForm: FormGroup;
+  selectedPlan: { plan: string; price: string } | null = null;
 
   constructor(private fb: FormBuilder) {
     this.homeForm = this.fb.group({
@@ -17,33 +18,11 @@ export class AppComponent {
       phoneNumber: ['', Validators.required],
     });
   }
+
   handlePlanSelected(event: { plan: string; price: string }) {
-    console.log((this.homeForm.value.planSelection = event));
-    console.log('new selection: ', this.homeForm.value.planSelection);
-
-    // console.log(event); // This will log the selected plan object, e.g., { plan: 'arcade', price: '$9/mo' }
-  }
-
-  handlePlanSelectedDefault(event: { plan: string; price: string }) {
-    console.log(this.homeForm.value.planSelection ? 'true' : 'false');
-    console.log('initial form data on second page: ', this.homeForm.value);
-
-    if (this.homeForm.value.planSelection === undefined) {
-      console.log(
-        'default selection: ',
-        (this.homeForm.value.planSelection = event)
-      );
-      console.log('initial form value on second page: ', this.homeForm.value);
-
-      // console.log(this.homeForm.value);
-    } else {
-      console.log(
-        'got planselection already: ',
-        this.homeForm.value.planSelection
-      );
-    }
-
-    // console.log(event); // This will log the selected plan object, e.g., { plan: 'arcade', price: '$9/mo' }
+    this.selectedPlan = event;
+    this.homeForm.value.planSelection = event;
+    console.log('Plan selected: ', this.homeForm.value.planSelection);
   }
 
   nextStep() {

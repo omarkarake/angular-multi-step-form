@@ -6,23 +6,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./select-plan.component.css'],
 })
 export class SelectPlanComponent implements OnInit {
-  @Input('currentStep') currentStep!: number;
+  @Input() currentStep!: number;
+  @Input() selectedPlan: { plan: string; price: string } | null = null;
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
-  @Output() planSelected = new EventEmitter<{ plan: string, price: string }>();
-  @Output() planSelectedDefault = new EventEmitter<{ plan: string, price: string }>();
+  @Output() planSelected = new EventEmitter<{ plan: string; price: string }>();
 
-  selectedPlan: 'arcade' | 'advanced' | 'pro' = 'arcade'; // Set default to 'arcade'
-  selectedPlanDue: 'monthly' | 'yearly' = 'monthly'; // Set default to 'monthly'
-  
-  selectPlan(plan: 'arcade' | 'advanced' | 'pro') {
-    this.selectedPlan = plan;
-    this.planSelected.emit({ plan, price: this.getPlanPrice(plan) });
-  }
-
-  onClickSelectedPlanDue() {
-    this.selectedPlanDue = this.selectedPlanDue === 'monthly' ? 'yearly' : 'monthly';
-  }
+  selectedPlanType: 'arcade' | 'advanced' | 'pro' = 'arcade';
+  selectedPlanDue: 'monthly' | 'yearly' = 'monthly';
 
   prices = {
     arcade: {
@@ -38,12 +29,27 @@ export class SelectPlanComponent implements OnInit {
       yearly: '$150/yr',
     },
   };
-  getPlanPrice(plan: 'arcade' | 'advanced' | 'pro'): string {
-    return this.prices[plan][this.selectedPlanDue];
-  }
 
   ngOnInit(): void {
-    this.planSelectedDefault.emit({ plan:'arcade', price: this.prices.arcade.monthly });
+    if (this.selectedPlan) {
+      this.selectedPlanType = this.selectedPlan.plan as 'arcade' | 'advanced' | 'pro';
+      this.selectedPlanDue = this.selectedPlan.price.includes('/yr') ? 'yearly' : 'monthly';
+    } else {
+      this.planSelected.emit({ plan: this.selectedPlanType, price: this.prices.arcade.monthly });
+    }
+  }
+
+  selectPlan(plan: 'arcade' | 'advanced' | 'pro') {
+    this.selectedPlanType = plan;
+    this.planSelected.emit({ plan, price: this.getPlanPrice(plan) });
+  }
+
+  onClickSelectedPlanDue() {
+    this.selectedPlanDue = this.selectedPlanDue === 'monthly' ? 'yearly' : 'monthly';
+  }
+
+  getPlanPrice(plan: 'arcade' | 'advanced' | 'pro'): string {
+    return this.prices[plan][this.selectedPlanDue];
   }
 
   nextStep(event: Event) {
