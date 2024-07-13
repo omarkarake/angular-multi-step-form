@@ -19,13 +19,19 @@ export class AppComponent {
   }
   handlePlanSelected(event: { plan: string, price: string }) {
     console.log(this.homeForm.value.planSelection = event);
-    console.log(this.homeForm.value);
+    console.log("new selection: ",this.homeForm.value.planSelection);
     
     // console.log(event); // This will log the selected plan object, e.g., { plan: 'arcade', price: '$9/mo' }
   }
+
   handlePlanSelectedDefault(event: { plan: string, price: string }) {
-    console.log(this.homeForm.value.planSelection = event);
-    console.log(this.homeForm.value);
+    if(this.homeForm.value.planSelection === undefined){
+      console.log("default selection: ", this.homeForm.value.planSelection = event);
+      // console.log(this.homeForm.value);
+    }else{
+      console.log('got planselection already: ', this.homeForm.value.planSelection);
+    }
+    
     
     // console.log(event); // This will log the selected plan object, e.g., { plan: 'arcade', price: '$9/mo' }
   }
