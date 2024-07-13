@@ -11,7 +11,7 @@ export class SelectPlanComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
   @Output() planSelected = new EventEmitter<{ plan: string; price: string }>();
-  // here
+  
   selectedPlanType: 'arcade' | 'advanced' | 'pro' = 'arcade';
   selectedPlanDue: 'monthly' | 'yearly' = 'monthly';
 
@@ -36,38 +36,20 @@ export class SelectPlanComponent implements OnInit {
   }
 
   onClickSelectedPlanDue() {
-    this.selectedPlanDue =
-      this.selectedPlanDue === 'monthly' ? 'yearly' : 'monthly';
+    this.selectedPlanDue = this.selectedPlanDue === 'monthly' ? 'yearly' : 'monthly';
+    this.planSelected.emit({ plan: this.selectedPlanType, price: this.getPlanPrice(this.selectedPlanType) });
   }
 
-  // and here
   getPlanPrice(plan: 'arcade' | 'advanced' | 'pro'): string {
     return this.prices[plan][this.selectedPlanDue];
   }
 
   ngOnInit(): void {
     if (this.selectedPlan) {
-      if (this.selectedPlan.plan !== 'arcade') {
-        console.log('selected plan type', this.selectedPlan.plan);
-        console.log('selected plan type', this.selectedPlan.price);
-
-        this.planSelected.emit({
-          plan: this.selectedPlan.plan,
-          price: this.selectedPlan.price,
-        });
-      }
-      this.selectedPlanType = this.selectedPlan.plan as
-        | 'arcade'
-        | 'advanced'
-        | 'pro';
-      this.selectedPlanDue = this.selectedPlan.price.includes('/yr')
-        ? 'yearly'
-        : 'monthly';
+      this.selectedPlanType = this.selectedPlan.plan as 'arcade' | 'advanced' | 'pro';
+      this.selectedPlanDue = this.selectedPlan.price.includes('/yr') ? 'yearly' : 'monthly';
     } else {
-      this.planSelected.emit({
-        plan: this.selectedPlanType,
-        price: this.prices.arcade.monthly,
-      });
+      this.planSelected.emit({ plan: this.selectedPlanType, price: this.prices.arcade.monthly });
     }
   }
 

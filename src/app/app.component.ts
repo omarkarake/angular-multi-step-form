@@ -10,7 +10,7 @@ export class AppComponent {
   currentStep = 0; // 0: Home, 1: Select Plan, 2: Pick Add-ons, 3: Finishing Up, 4: Thank You
   homeForm: FormGroup;
   selectedPlan: { plan: string; price: string } | null = null;
-  selectedAddOns: [{name: string, description: string, price: string, selected: boolean}] | null = null;
+  selectedAddOns: [{ name: string; description: string; price: string; selected: boolean }] | null = null;
   navDisableState: boolean = false;
 
   constructor(private fb: FormBuilder) {
@@ -53,10 +53,11 @@ export class AppComponent {
     this.currentStep = step;
   }
 
-  disableNav(){
+  disableNav() {
     this.navDisableState = true;
     console.log(this.navDisableState);
   }
+
   nameValidator(control: AbstractControl): ValidationErrors | null {
     const value = control.value;
     const namePattern = /^[A-Za-z\s]+$/; // Only letters and spaces
