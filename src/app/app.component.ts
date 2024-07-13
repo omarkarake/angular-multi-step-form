@@ -27,6 +27,11 @@ export class AppComponent {
     console.log('Plan selected: ', this.homeForm.value.planSelection);
   }
 
+  handleAddOnsSelected(selectedAddOns: any[]) {
+    this.homeForm.patchValue({ addOns: selectedAddOns });
+    console.log('Add-ons selected: ', this.homeForm.value.addOns);
+  }
+
   nextStep() {
     if (this.currentStep < 4) {
       this.currentStep++;

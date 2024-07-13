@@ -18,14 +18,15 @@
         (next)="nextStep()"
         (back)="previousStep()"
         (planSelected)="handlePlanSelected($event)"
-        ></app-select-plan>
-        <app-pick-add-ons
-        [selectedPlan]="selectedPlan"
-        [currentStep]="currentStep"
-        *ngIf="currentStep === 2"
-        (next)="nextStep()"
-        (back)="previousStep()"
-      ></app-pick-add-ons>
+      ></app-select-plan>
+      <app-pick-add-ons
+  [selectedPlan]="selectedPlan"
+  [currentStep]="currentStep"
+  *ngIf="currentStep === 2"
+  (next)="nextStep()"
+  (back)="previousStep()"
+  (addOnsSelected)="handleAddOnsSelected($event)"
+></app-pick-add-ons>
       <app-finishing-up
         [currentStep]="currentStep"
         *ngIf="currentStep === 3"

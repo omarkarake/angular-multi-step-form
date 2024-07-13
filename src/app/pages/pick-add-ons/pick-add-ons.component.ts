@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 interface AddOn {
   name: string;
   description: string;
@@ -16,6 +17,7 @@ export class PickAddOnsComponent implements OnInit {
   @Input() selectedPlan: { plan: string; price: string } | null = null;
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
+  @Output() addOnsSelected = new EventEmitter<AddOn[]>();
 
   duration: string | undefined = 'mo';
   addOns: AddOn[] = [];
@@ -57,9 +59,11 @@ export class PickAddOnsComponent implements OnInit {
       selected: false,
     },
   ];
+
   getTheFiltered(arr: any) {
     return arr.filter((obj: any) => obj?.price.slice(-2) === this.duration);
   }
+
   ngOnInit(): void {
     this.duration = this.selectedPlan?.price.slice(-2);
     console.log(this.duration);
@@ -73,6 +77,7 @@ export class PickAddOnsComponent implements OnInit {
       'Selected Add-Ons:',
       this.addOns.filter((addOn) => addOn.selected)
     );
+    this.addOnsSelected.emit(this.addOns.filter((addOn) => addOn.selected));
     this.next.emit();
   }
 
@@ -83,5 +88,6 @@ export class PickAddOnsComponent implements OnInit {
 
   toggleSelection(index: number) {
     this.addOns[index].selected = !this.addOns[index].selected;
+    this.addOnsSelected.emit(this.addOns.filter((addOn) => addOn.selected));
   }
 }
