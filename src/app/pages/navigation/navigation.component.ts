@@ -7,6 +7,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class NavigationComponent {
   @Input() currentStep: number = 0;
+  @Input('navDisableState') navDisableState:boolean =false;
   @Output() stepChange = new EventEmitter<number>();
 
   onStepClick(step: number) {

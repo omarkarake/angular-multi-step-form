@@ -11,6 +11,7 @@ export class AppComponent {
   homeForm: FormGroup;
   selectedPlan: { plan: string; price: string } | null = null;
   selectedAddOns: [{name: string, description: string, price: string, selected: boolean}] | null = null;
+  navDisableState: boolean = false;
 
   constructor(private fb: FormBuilder) {
     this.homeForm = this.fb.group({
@@ -50,5 +51,9 @@ export class AppComponent {
 
   onStepChange(step: number) {
     this.currentStep = step;
+  }
+
+  disableNav(){
+    this.navDisableState = true;
   }
 }
