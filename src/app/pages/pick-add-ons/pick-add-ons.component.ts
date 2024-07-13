@@ -15,6 +15,9 @@ interface AddOn {
 export class PickAddOnsComponent implements OnInit {
   @Input('currentStep') currentStep!: number;
   @Input() selectedPlan: { plan: string; price: string } | null = null;
+  @Input() selectedAddOns:
+    | [{ name: string; description: string; price: string; selected: boolean }]
+    | null = null;
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
   @Output() addOnsSelected = new EventEmitter<AddOn[]>();
@@ -66,17 +69,20 @@ export class PickAddOnsComponent implements OnInit {
 
   ngOnInit(): void {
     this.duration = this.selectedPlan?.price.slice(-2);
-    console.log(this.duration);
     this.addOns = this.getTheFiltered(this.unfilteredAddons);
-    console.log(this.addOns);
+    console.log('initial addons on render: ', this.addOns);
+    console.log('initial selected addons: ', this.selectedAddOns);
+    this.addOns.forEach((addOn) => {
+      const selected = this.selectedAddOns?.some((selectedAddOn) => selectedAddOn.name === addOn.name);
+      if (selected) {
+        addOn.selected = true;
+      }
+    });
   }
 
   nextStep(event: Event) {
     event.stopPropagation();
-    console.log(
-      'Selected Add-Ons:',
-      this.addOns.filter((addOn) => addOn.selected)
-    );
+    this.addOns.filter((addOn) => addOn.selected);
     this.addOnsSelected.emit(this.addOns.filter((addOn) => addOn.selected));
     this.next.emit();
   }
@@ -87,6 +93,7 @@ export class PickAddOnsComponent implements OnInit {
   }
 
   toggleSelection(index: number) {
+    console.log('selection toggle: ', this.addOns[index].selected);
     this.addOns[index].selected = !this.addOns[index].selected;
     this.addOnsSelected.emit(this.addOns.filter((addOn) => addOn.selected));
   }

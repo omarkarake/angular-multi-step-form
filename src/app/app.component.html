@@ -1,5 +1,9 @@
-<div class="lg:h-screen lg:max-h-[810px] w-screen max-w-[1440px] bg-bg lg:flex lg:justify-center lg:items-center font-ubuntu">
-  <div class="font-ubuntu lg:w-[940px] h-screen lg:h-[600px] lg:bg-white lg:shadow-custom lg:shadow-grey lg:rounded-[.9375rem] lg:p-4 flex lg:flex-row flex-col relative">
+<div
+  class="lg:h-screen lg:max-h-[810px] w-screen max-w-[1440px] bg-bg lg:flex lg:justify-center lg:items-center font-ubuntu"
+>
+  <div
+    class="font-ubuntu lg:w-[940px] h-screen lg:h-[600px] lg:bg-white lg:shadow-custom lg:shadow-grey lg:rounded-[.9375rem] lg:p-4 flex lg:flex-row flex-col relative"
+  >
     <app-navigation
       [currentStep]="currentStep"
       (stepChange)="onStepChange($event)"
@@ -20,13 +24,14 @@
         (planSelected)="handlePlanSelected($event)"
       ></app-select-plan>
       <app-pick-add-ons
-  [selectedPlan]="selectedPlan"
-  [currentStep]="currentStep"
-  *ngIf="currentStep === 2"
-  (next)="nextStep()"
-  (back)="previousStep()"
-  (addOnsSelected)="handleAddOnsSelected($event)"
-></app-pick-add-ons>
+        [selectedPlan]="selectedPlan"
+        [selectedAddOns]="selectedAddOns"
+        [currentStep]="currentStep"
+        *ngIf="currentStep === 2"
+        (next)="nextStep()"
+        (back)="previousStep()"
+        (addOnsSelected)="handleAddOnsSelected($event)"
+      ></app-pick-add-ons>
       <app-finishing-up
         [currentStep]="currentStep"
         *ngIf="currentStep === 3"

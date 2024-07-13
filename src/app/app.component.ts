@@ -10,6 +10,7 @@ export class AppComponent {
   currentStep = 0; // 0: Home, 1: Select Plan, 2: Pick Add-ons, 3: Finishing Up, 4: Thank You
   homeForm: FormGroup;
   selectedPlan: { plan: string; price: string } | null = null;
+  selectedAddOns: [{name: string, description: string, price: string, selected: boolean}] | null = null;
 
   constructor(private fb: FormBuilder) {
     this.homeForm = this.fb.group({
@@ -30,6 +31,7 @@ export class AppComponent {
   handleAddOnsSelected(selectedAddOns: any[]) {
     this.homeForm.patchValue({ addOns: selectedAddOns });
     console.log('Add-ons selected: ', this.homeForm.value.addOns);
+    this.selectedAddOns = this.homeForm.value.addOns;
   }
 
   nextStep() {
