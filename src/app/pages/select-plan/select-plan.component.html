@@ -1,13 +1,9 @@
 <div class="flex justify-center w-[100%] lg:h-[100%]">
-  <div
-    class="w-[90%] bg-white h-auto -mt-[73px] lg:w-[100%] lg:h-[100%] lg:-mt-0 rounded-[10px] px-6 pt-8 pb-5 lg:flex lg:flex-col lg:items-center lg:justify-between lg:pt-14 lg:pb-8"
-  >
+  <div class="w-[90%] bg-white h-auto -mt-[73px] lg:w-[100%] lg:h-[100%] lg:-mt-0 rounded-[10px] px-6 pt-8 pb-5 lg:flex lg:flex-col lg:items-center lg:justify-between lg:pt-14 lg:pb-8">
     <div class="lg:w-[450px] lg:h-[372px] flex flex-col gap-10">
       <div>
         <p class="text-heading">Select your plan</p>
-        <p class="text-body-l text-grey">
-          You have the option of monthly or yearly billing.
-        </p>
+        <p class="text-body-l text-grey">You have the option of monthly or yearly billing.</p>
       </div>
       <div>
         <div class="flex flex-col lg:flex-row justify-between">
@@ -16,9 +12,7 @@
             [class.border-purple]="selectedPlan === 'arcade'"
             (click)="selectPlan('arcade')"
           >
-            <div
-              class="w-10 h-10 bg-[url('./assets/images/icon-arcade.svg')] rounded-full"
-            ></div>
+            <div class="w-10 h-10 bg-[url('./assets/images/icon-arcade.svg')] rounded-full"></div>
             <div>
               <p class="text-denim">Arcade</p>
               <p class="text-body-m text-grey">{{ getPlanPrice('arcade') }}</p>
@@ -29,9 +23,7 @@
             [class.border-purple]="selectedPlan === 'advanced'"
             (click)="selectPlan('advanced')"
           >
-            <div
-              class="w-10 h-10 bg-[url('./assets/images/icon-advanced.svg')] rounded-full"
-            ></div>
+            <div class="w-10 h-10 bg-[url('./assets/images/icon-advanced.svg')] rounded-full"></div>
             <div>
               <p class="text-denim">Advanced</p>
               <p class="text-body-m text-grey">{{ getPlanPrice('advanced') }}</p>
@@ -42,29 +34,23 @@
             [class.border-purple]="selectedPlan === 'pro'"
             (click)="selectPlan('pro')"
           >
-            <div
-              class="w-10 h-10 bg-[url('./assets/images/icon-pro.svg')] rounded-full"
-            ></div>
+            <div class="w-10 h-10 bg-[url('./assets/images/icon-pro.svg')] rounded-full"></div>
             <div>
               <p class="text-denim">Pro</p>
               <p class="text-body-m text-grey">{{ getPlanPrice('pro') }}</p>
             </div>
           </div>
         </div>
-        <div
-          class="bg-very-light-gray w-[100%] h-[48px] mt-6 flex justify-center items-center gap-6"
-        >
-          <div class=""><p class="text-body-m text-denim">Monthly</p></div>
+        <div class="bg-very-light-gray w-[100%] h-[48px] mt-6 flex justify-center items-center gap-6">
+          <div><p class="text-body-m text-denim">Monthly</p></div>
           <div
             [ngClass]="{'items-start': selectedPlanDue === 'monthly', 'items-end': selectedPlanDue === 'yearly'}"
             class="w-[38px] h-[20px] px-1 bg-purple rounded-full flex flex-col justify-center"
             (click)="onClickSelectedPlanDue()"
           >
-            <div
-              class="w-[12px] h-[12px] bg-white rounded-full cursor-pointer"
-            ></div>
+            <div class="w-[12px] h-[12px] bg-white rounded-full cursor-pointer"></div>
           </div>
-          <div class=""><p class="text-body-m text-grey">Yearly</p></div>
+          <div><p class="text-body-m text-grey">Yearly</p></div>
         </div>
       </div>
     </div>

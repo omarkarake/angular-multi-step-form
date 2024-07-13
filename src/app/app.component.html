@@ -17,6 +17,7 @@
       ></app-home>
       <app-select-plan
       (planSelected)="handlePlanSelected($event)"
+      (planSelectedDefault)="handlePlanSelectedDefault($event)"
         [currentStep]="currentStep"
         *ngIf="currentStep === 1"
         (next)="nextStep()"
