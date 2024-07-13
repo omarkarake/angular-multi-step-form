@@ -16,12 +16,14 @@ export class AppComponent {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', Validators.required],
+      planSelection: null,
+      addOns: []
     });
   }
 
   handlePlanSelected(event: { plan: string; price: string }) {
     this.selectedPlan = event;
-    this.homeForm.value.planSelection = event;
+    this.homeForm.patchValue({ planSelection: event });
     console.log('Plan selected: ', this.homeForm.value.planSelection);
   }
 
