@@ -1,4 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+interface AddOn {
+  name: string;
+  description: string;
+  price: string;
+  selected: boolean;
+}
 
 @Component({
   selector: 'app-pick-add-ons',
@@ -12,11 +18,8 @@ export class PickAddOnsComponent implements OnInit {
   @Output() back = new EventEmitter<void>();
 
   duration: string | undefined = 'mo';
-  ngOnInit(): void {
-    this.duration = this.selectedPlan?.price.slice(-2);
-    console.log(this.duration);
-  }
-  addOns = [
+  addOns: AddOn[] = [];
+  unfilteredAddons = [
     {
       name: 'Online service',
       description: 'Access to multiplayer games',
@@ -54,6 +57,15 @@ export class PickAddOnsComponent implements OnInit {
       selected: false,
     },
   ];
+  getTheFiltered(arr: any) {
+    return arr.filter((obj: any) => obj?.price.slice(-2) === this.duration);
+  }
+  ngOnInit(): void {
+    this.duration = this.selectedPlan?.price.slice(-2);
+    console.log(this.duration);
+    this.addOns = this.getTheFiltered(this.unfilteredAddons);
+    console.log(this.addOns);
+  }
 
   nextStep(event: Event) {
     event.stopPropagation();
