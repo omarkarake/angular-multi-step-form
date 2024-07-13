@@ -26,12 +26,10 @@ export class AppComponent {
   handlePlanSelected(event: { plan: string; price: string }) {
     this.selectedPlan = event;
     this.homeForm.patchValue({ planSelection: event });
-    console.log('Plan selected: ', this.homeForm.value.planSelection);
   }
 
   handleAddOnsSelected(selectedAddOns: any[]) {
     this.homeForm.patchValue({ addOns: selectedAddOns });
-    console.log('Add-ons selected: ', this.homeForm.value.addOns);
     this.selectedAddOns = this.homeForm.value.addOns;
   }
 
@@ -39,14 +37,12 @@ export class AppComponent {
     if (this.currentStep < 4) {
       this.currentStep++;
     }
-    console.log('next: ', this.homeForm.value);
   }
 
   previousStep() {
     if (this.currentStep > 0) {
       this.currentStep--;
     }
-    console.log('back: ', this.homeForm.value);
   }
 
   onStepChange(step: number) {
@@ -55,7 +51,6 @@ export class AppComponent {
 
   disableNav() {
     this.navDisableState = true;
-    console.log(this.navDisableState);
   }
 
   nameValidator(control: AbstractControl): ValidationErrors | null {

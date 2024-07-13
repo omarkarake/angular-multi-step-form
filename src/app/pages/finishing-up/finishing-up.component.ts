@@ -25,11 +25,9 @@ export class FinishingUpComponent implements OnInit {
   totalPrice: number = 0;
   ngOnInit(): void {
     this.formValue = this.form.value;
-    console.log('initial render on finishing up: ', this.formValue);
     this.price.push(
       Number(this.formValue.planSelection.price.match(/\d+/g).join(''))
     );
-    // console.log('selectedPriceAddons: ', this.formValue.addOns);
     this.formValue.addOns.forEach((element: AddOn | any) => {
       this.price.push(Number(element.price.match(/\d+/g).join('')));
     });
@@ -46,6 +44,7 @@ export class FinishingUpComponent implements OnInit {
     event.stopPropagation();
     this.disableNav.emit();
     this.next.emit();
+    console.log("final data: ", this.formValue);
   }
 
   previousStep(event: Event) {

@@ -74,8 +74,6 @@ export class PickAddOnsComponent implements OnInit {
   ngOnInit(): void {
     this.duration = this.selectedPlan?.price.slice(-2);
     this.addOns = this.getTheFiltered(this.unfilteredAddons);
-    console.log('initial addons on render: ', this.addOns);
-    console.log('initial selected addons: ', this.selectedAddOns);
     this.addOns.forEach((addOn) => {
       const selected = this.selectedAddOns?.some((selectedAddOn) => 
         selectedAddOn.name === addOn.name && selectedAddOn.price === addOn.price
@@ -99,7 +97,6 @@ export class PickAddOnsComponent implements OnInit {
   }
 
   toggleSelection(index: number) {
-    console.log('selection toggle: ', this.addOns[index].selected);
     this.addOns[index].selected = !this.addOns[index].selected;
     this.addOnsSelected.emit(this.addOns.filter((addOn) => addOn.selected));
   }

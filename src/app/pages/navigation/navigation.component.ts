@@ -14,7 +14,6 @@ export class NavigationComponent implements OnInit {
     this.stepChange.emit(step);
   }
   showState() {
-    console.log(this.navDisableState);
   }
   ngOnInit(): void {
     this.showState();
