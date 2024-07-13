@@ -22,18 +22,18 @@
             </div>
           </div>
           <div class="h-[1px] bg-grey w-[100%]"></div>
-          <div class="flex justify-between items-center">
+          <div *ngFor="let addon of formValue.addOns" class="flex justify-between items-center">
             <div class="">
-              <p class="text-sm text-grey">Online service</p>
+              <p class="text-sm text-grey">{{addon.name}}</p>
             </div>
-            <div><p class="font-bold text-sm text-denim">+$10/yr</p></div>
+            <div><p class="font-bold text-sm text-denim">{{addon.price}}</p></div>
           </div>
-          <div class="flex justify-between items-center">
+          <!-- <div class="flex justify-between items-center">
             <div class="">
               <p class="text-sm text-grey">Larger storage</p>
             </div>
             <div><p class="font-bold text-sm text-denim">+$20/yr</p></div>
-          </div>
+          </div> -->
         </div>
         <div class="flex justify-between items-center p-4">
           <div class="">
