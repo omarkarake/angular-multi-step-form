@@ -11,9 +11,17 @@ export class SelectPlanComponent {
   @Output() back = new EventEmitter<void>();
 
   selectedPlan: string | null = null;
+  selectedPlanDue: string | null = 'monthly';
 
   selectPlan(plan: string) {
     this.selectedPlan = plan;
+  }
+
+  onClickSelectedPlanDue() {
+    this.selectedPlanDue === 'monthly'
+      ? (this.selectedPlanDue = 'yearly')
+      : (this.selectedPlanDue = 'monthly');
+      console.log(this.selectedPlanDue);
   }
 
   nextStep(event: Event) {
