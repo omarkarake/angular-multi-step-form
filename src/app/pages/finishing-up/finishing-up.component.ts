@@ -44,6 +44,7 @@ export class FinishingUpComponent implements OnInit {
     event.stopPropagation();
     this.disableNav.emit();
     this.next.emit();
+    this.formValue['totalPrice'] = this.totalPrice;
     console.log("final data: ", this.formValue);
   }
 

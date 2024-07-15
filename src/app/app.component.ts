@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   currentStep = 0; // 0: Home, 1: Select Plan, 2: Pick Add-ons, 3: Finishing Up, 4: Thank You
   homeForm: FormGroup;
   selectedPlan: { plan: string; price: string } | null = null;
@@ -21,6 +22,35 @@ export class AppComponent {
       planSelection: null,
       addOns: []
     });
+  }
+
+  ngOnInit() {
+    this.homeForm.get('name')?.valueChanges
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged()
+      )
+      .subscribe(value => {
+        this.homeForm.get('name')?.updateValueAndValidity();
+      });
+
+    this.homeForm.get('email')?.valueChanges
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged()
+      )
+      .subscribe(value => {
+        this.homeForm.get('email')?.updateValueAndValidity();
+      });
+
+    this.homeForm.get('phoneNumber')?.valueChanges
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged()
+      )
+      .subscribe(value => {
+        this.homeForm.get('phoneNumber')?.updateValueAndValidity();
+      });
   }
 
   handlePlanSelected(event: { plan: string; price: string }) {
