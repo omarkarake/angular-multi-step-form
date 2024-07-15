@@ -1,27 +1,50 @@
-# AngularMultiStepForm
+##this is the hosted link for the project: https://tranquil-cascaron-bf96b4.netlify.app/
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
+1. Main App Component (AppComponent)
+This component manages the overall navigation and state of the multi-step form. It uses Angular forms for validation and has methods for handling the selection of plans and add-ons, as well as navigating between steps.
 
-## Development server
+Key Features:
+Form Handling: Uses reactive forms (FormGroup) for managing user input and validation.
+Step Navigation: Methods to navigate between steps (nextStep, previousStep).
+State Management: Holds the current step, selected plan, and selected add-ons in its state.
+2. Navigation Component (NavigationComponent)
+This component provides the UI for navigation through the steps of the form. It displays the current step and allows users to click to navigate directly to a specific step, if enabled.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Key Features:
+Input Properties: Receives the current step and whether navigation is disabled as inputs.
+Output Event: Emits an event when a step is clicked to change the step in the main component.
+3. Select Plan Component (SelectPlanComponent)
+This component is responsible for the "Select Plan" step of the form. It displays different plan options and allows the user to select one.
 
-## Code scaffolding
+Key Features:
+Plan Selection: Methods to select a plan and toggle between monthly and yearly billing.
+Input Properties: Receives the current step and selected plan.
+Output Events: Emits events when a plan is selected, or the user wants to navigate to the next or previous step.
+4. Pick Add-Ons Component (PickAddOnsComponent)
+This component handles the "Pick Add-Ons" step of the form. It allows users to select additional features or services.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Key Features:
+Add-On Selection: Methods to toggle the selection of add-ons.
+Input Properties: Receives the current step, selected plan, and selected add-ons.
+Output Events: Emits events for selected add-ons and step navigation.
+5. HTML Templates
+The HTML templates for these components use Tailwind CSS for styling and provide the structure for the multi-step form. They include:
 
-## Build
+Conditional Rendering: Showing and hiding components based on the current step.
+Responsive Design: Classes to ensure the layout adapts to different screen sizes.
+User Interaction: Click handlers for navigating between steps and selecting plans/add-ons.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Features
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Multi-step form navigation:
+  - Home
+  - Select Plan
+  - Pick Add-ons
+  - Finishing Up
+  - Thank You
+- Form validation:
+  - Name (only letters and spaces, minimum 3 characters)
+  - Email (valid email format)
+  - Phone Number (only numbers, minimum 3 digits)
+- Real-time validation with debounce and distinct checks.
+- Dynamic plan and add-on selection.
